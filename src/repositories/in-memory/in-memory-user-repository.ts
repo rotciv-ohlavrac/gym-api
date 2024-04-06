@@ -25,12 +25,14 @@ export class inMemoryUsersRepository implements UsersRespository {
     name,
     email,
     password_hash,
+    role = "MEMBER",
   }: Prisma.UserCreateInput): Promise<User> {
     const user: User = {
       id: randomUUID(),
       name,
       email,
       password_hash,
+      role,
       created_at: new Date(),
     };
 
